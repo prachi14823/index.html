@@ -1,0 +1,27 @@
+name: Basic Deployment Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Code Ghetala - Checkout
+        uses: actions/checkout@v4
+
+      - name: 2. Build - File Check Karto
+        run: ls -la
+
+      - name: 3. Test - index.html Ahe Ka?
+        run: |
+          if [ -f "index.html" ]; then
+            echo "Test Passed! File sapadli"
+          else
+            echo "Test Failed!"
+            exit 1
+          fi
+
+      - name: 4. Deploy - Live Karat Aahot
+        run: echo "Deploy Successful! Website Live Ahe!"
